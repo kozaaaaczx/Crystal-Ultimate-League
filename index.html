@@ -64,29 +64,56 @@
         }
         
         .crystal-table {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
             box-shadow: 
-                0 0 50px rgba(59, 130, 246, 0.4),
-                0 20px 40px rgba(0, 0, 0, 0.5),
-                inset 0 0 30px rgba(59, 130, 246, 0.1);
+                0 0 60px rgba(147, 51, 234, 0.4),
+                0 25px 50px rgba(0, 0, 0, 0.6),
+                inset 0 0 40px rgba(147, 51, 234, 0.1),
+                0 0 120px rgba(147, 51, 234, 0.2);
             overflow: hidden;
+            position: relative;
+        }
+        
+        .crystal-table::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         
         .table-header {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%);
-            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%);
+            border-bottom: 2px solid rgba(147, 51, 234, 0.4);
+            position: relative;
+            z-index: 10;
         }
         
         .header-cell {
-            padding: 1rem;
-            font-weight: 700;
+            padding: 1.2rem 1rem;
+            font-weight: 800;
             text-transform: uppercase;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
             border-right: 1px solid rgba(148, 163, 184, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .header-cell:hover {
+            background: rgba(147, 51, 234, 0.1);
+            transform: translateY(-2px);
         }
         
         .header-cell:last-child {
@@ -109,13 +136,31 @@
         }
         
         .table-row {
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .table-row::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .table-row:hover::before {
+            left: 100%;
         }
         
         .table-row:hover {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-            transform: translateX(5px);
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.3);
+            z-index: 5;
         }
         
         .row-blue {
@@ -135,10 +180,17 @@
         }
         
         .position-cell {
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
             font-weight: 900;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .position-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
         }
         
         .position-1 {
@@ -162,38 +214,82 @@
         }
         
         .team-cell {
-            padding: 0.75rem;
+            padding: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
+            position: relative;
         }
         
         .team-logo {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        
+        .team-logo:hover {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 4px 8px rgba(147, 51, 234, 0.5));
         }
         
         .team-name {
             color: #fff;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .team-name:hover {
+            color: #a78bfa;
+            transform: translateX(3px);
         }
         
         .stats-cell {
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
             color: #fff;
             font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-cell:hover {
+            color: #fbbf24;
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
         }
         
         .points-cell {
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(22, 163, 74, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(22, 163, 74, 0.4) 100%);
             color: #fff;
-            font-weight: 700;
-            font-size: 1.125rem;
+            font-weight: 800;
+            font-size: 1.3rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .points-cell::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.2) 100%);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .points-cell:hover::before {
+            opacity: 1;
+        }
+        
+        .points-cell:hover {
+            transform: scale(1.05);
+            color: #fbbf24;
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.8);
         }
         
         .crystal-icon {
