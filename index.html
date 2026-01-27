@@ -30,8 +30,47 @@
         
         @media (max-width: 768px) {
             body {
-                background-size: 300px 300px;
+                background: #ffffff;
+                background-image: none;
             }
+            
+            .container {
+                display: none;
+            }
+            
+            .mobile-notice {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                text-align: center;
+                padding: 2rem;
+                background: #ffffff;
+            }
+            
+            .mobile-notice h1 {
+                font-size: 2rem;
+                color: #333;
+                margin-bottom: 1rem;
+                font-family: 'Inter', sans-serif;
+            }
+            
+            .mobile-notice p {
+                font-size: 1.1rem;
+                color: #666;
+                line-height: 1.6;
+                max-width: 400px;
+            }
+            
+            .mobile-notice .icon {
+                font-size: 4rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        .mobile-notice {
+            display: none;
         }
         
         body::before {
@@ -492,6 +531,12 @@
     </style>
 </head>
 <body class="min-h-screen">
+    <div class="mobile-notice">
+        <div class="icon">📱</div>
+        <h1>Crystal Ultimate League</h1>
+        <p>Przepraszamy, ta strona nie jest kompatybilna z urządzeniami mobilnymi. Aby zobaczyć pełną tabelę ligową, proszę otworzyć stronę na komputerze.</p>
+    </div>
+    
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         <header class="text-center mb-10">
             <div class="flex justify-center mb-4">
