@@ -979,52 +979,28 @@
         </section>
 
         <!-- Kwalifikacje Europejskie -->
-        <section class="euro-qualifications mt-12">
-            <h2 class="euro-title">🏆 Kwalifikacje Europejskie</h2>
-            <div class="qualifications-grid">
-                <div class="qualification-card top1">
-                    <div class="qual-icon">🥇</div>
-                    <div class="qual-content">
-                        <h3>Top 1</h3>
-                        <p class="qual-desc">Liga Mistrzów</p>
-                        <p class="qual-round">4. runda kwalifikacyjna</p>
-                    </div>
+        <section class="euro-qualifications-compact mt-8">
+            <h3 class="euro-compact-title">🏆 Kwalifikacje Europejskie</h3>
+            <div class="euro-list">
+                <div class="euro-item top1">
+                    <span class="euro-position">1️⃣</span>
+                    <span class="euro-desc">Liga Mistrzów (4. runda)</span>
                 </div>
-                
-                <div class="qualification-card top2">
-                    <div class="qual-icon">🥈</div>
-                    <div class="qual-content">
-                        <h3>Top 2</h3>
-                        <p class="qual-desc">Liga Mistrzów</p>
-                        <p class="qual-round">2. runda kwalifikacyjna</p>
-                    </div>
+                <div class="euro-item top2">
+                    <span class="euro-position">2️⃣</span>
+                    <span class="euro-desc">Liga Mistrzów (2. runda)</span>
                 </div>
-                
-                <div class="qualification-card top3">
-                    <div class="qual-icon">🥉</div>
-                    <div class="qual-content">
-                        <h3>Top 3</h3>
-                        <p class="qual-desc">Liga Konferencji</p>
-                        <p class="qual-round">2. runda kwalifikacyjna</p>
-                    </div>
+                <div class="euro-item top3">
+                    <span class="euro-position">3️⃣</span>
+                    <span class="euro-desc">Liga Konferencji (2. runda)</span>
                 </div>
-                
-                <div class="qualification-card top4">
-                    <div class="qual-icon">🏅</div>
-                    <div class="qual-content">
-                        <h3>Top 4</h3>
-                        <p class="qual-desc">Liga Konferencji</p>
-                        <p class="qual-round">2. runda kwalifikacyjna</p>
-                    </div>
+                <div class="euro-item top4">
+                    <span class="euro-position">4️⃣</span>
+                    <span class="euro-desc">Liga Konferencji (2. runda)</span>
                 </div>
-                
-                <div class="qualification-card cup-winner">
-                    <div class="qual-icon">🏆</div>
-                    <div class="qual-content">
-                        <h3>Zwycięzca Pucharu Polski</h3>
-                        <p class="qual-desc">Liga Europy</p>
-                        <p class="qual-round">2. runda kwalifikacyjna</p>
-                    </div>
+                <div class="euro-item cup">
+                    <span class="euro-position">🏆</span>
+                    <span class="euro-desc">Zwycięzca Pucharu Polski - Liga Europy (2. runda)</span>
                 </div>
             </div>
         </section>
@@ -1281,6 +1257,132 @@
             .vs {
                 font-size: 0.9rem;
                 margin: 0 0.3rem;
+            }
+        }
+        
+        .euro-qualifications-compact {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .euro-compact-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+        }
+        
+        .euro-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .euro-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.5rem 0.8rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .euro-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+        
+        .euro-position {
+            font-size: 1.2rem;
+            font-weight: 700;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .euro-desc {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .euro-item.top1 .euro-position {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        
+        .euro-item.top2 .euro-position {
+            color: #9ca3af;
+            text-shadow: 0 0 10px rgba(156, 163, 175, 0.5);
+        }
+        
+        .euro-item.top3 .euro-position,
+        .euro-item.top4 .euro-position {
+            color: #cd7f32;
+            text-shadow: 0 0 10px rgba(205, 127, 50, 0.5);
+        }
+        
+        .euro-item.cup .euro-position {
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .euro-qualifications-compact {
+                margin-top: 1.5rem;
+                padding: 1rem;
+            }
+            
+            .euro-compact-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .euro-item {
+                padding: 0.4rem 0.6rem;
+                gap: 0.6rem;
+            }
+            
+            .euro-position {
+                font-size: 1rem;
+                min-width: 25px;
+            }
+            
+            .euro-desc {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .euro-qualifications-compact {
+                margin-top: 1rem;
+                padding: 0.8rem;
+            }
+            
+            .euro-compact-title {
+                font-size: 1.2rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .euro-item {
+                padding: 0.3rem 0.5rem;
+                gap: 0.5rem;
+            }
+            
+            .euro-position {
+                font-size: 0.9rem;
+                min-width: 20px;
+            }
+            
+            .euro-desc {
+                font-size: 0.75rem;
             }
         }
         
