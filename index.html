@@ -187,6 +187,7 @@
             display: grid;
             grid-template-columns: 70px 2.5fr 50px 50px 50px 50px 100px 70px;
             gap: 0;
+            width: 100%;
         }
         
         @media (max-width: 768px) {
@@ -296,34 +297,34 @@
             color: #fff;
         }
         
-        .table-row {
+        .league-row {
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             background: rgba(255, 255, 255, 0.01);
         }
         
-        .table-row:hover {
+        .league-row:hover {
             background: rgba(168, 85, 247, 0.05);
             transform: translateX(4px);
         }
         
-        .table-row:hover .team-name {
+        .league-row:hover .team-name {
             color: #ffffff;
         }
         
-        .table-row:hover .stats-cell {
+        .league-row:hover .stats-cell {
             color: rgba(255, 255, 255, 0.9);
         }
         
         @media (max-width: 768px) {
-            .table-row:hover {
+            .league-row:hover {
                 transform: translateX(4px) scale(1.01);
             }
         }
         
         @media (max-width: 480px) {
-            .table-row:hover {
+            .league-row:hover {
                 transform: translateX(2px) scale(1.005);
             }
         }
@@ -578,7 +579,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-emerald">
+            <div class="league-row row-emerald">
                 <div class="table-grid">
                     <div class="position-cell position-1">1</div>
                     <div class="team-cell">
@@ -594,7 +595,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-blue">
+            <div class="league-row row-blue">
                 <div class="table-grid">
                     <div class="position-cell position-2">2</div>
                     <div class="team-cell">
@@ -610,7 +611,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-purple">
+            <div class="league-row row-purple">
                 <div class="table-grid">
                     <div class="position-cell position-3">3</div>
                     <div class="team-cell">
@@ -626,7 +627,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-amber">
+            <div class="league-row row-amber">
                 <div class="table-grid">
                     <div class="position-cell position-other">4</div>
                     <div class="team-cell">
@@ -642,7 +643,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-emerald">
+            <div class="league-row row-emerald">
                 <div class="table-grid">
                     <div class="position-cell position-other">5</div>
                     <div class="team-cell">
@@ -658,7 +659,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-purple">
+            <div class="league-row row-purple">
                 <div class="table-grid">
                     <div class="position-cell position-other">6</div>
                     <div class="team-cell">
@@ -674,7 +675,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-blue">
+            <div class="league-row row-blue">
                 <div class="table-grid">
                     <div class="position-cell position-other">7</div>
                     <div class="team-cell">
@@ -690,7 +691,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-amber">
+            <div class="league-row row-amber">
                 <div class="table-grid">
                     <div class="position-cell position-other">8</div>
                     <div class="team-cell">
@@ -706,7 +707,7 @@
                 </div>
             </div>
 
-            <div class="table-row row-blue">
+            <div class="league-row row-blue">
                 <div class="table-grid">
                     <div class="position-cell position-other">9</div>
                     <div class="team-cell">
