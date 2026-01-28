@@ -61,42 +61,17 @@
         
         @media (max-width: 768px) {
             body {
-                background: #ffffff;
+                background: #0a0a0a;
                 background-image: none;
             }
             
             .container {
-                display: none;
+                display: block;
+                padding: 1rem;
             }
             
             .mobile-notice {
-                display: flex !important;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-                text-align: center;
-                padding: 2rem;
-                background: #ffffff;
-            }
-            
-            .mobile-notice h1 {
-                font-size: 2rem;
-                color: #333;
-                margin-bottom: 1rem;
-                font-family: 'Inter', sans-serif;
-            }
-            
-            .mobile-notice p {
-                font-size: 1.1rem;
-                color: #666;
-                line-height: 1.6;
-                max-width: 400px;
-            }
-            
-            .mobile-notice .icon {
-                font-size: 4rem;
-                margin-bottom: 2rem;
+                display: none !important;
             }
         }
         
@@ -157,6 +132,22 @@
             .crystal-title {
                 font-size: 2.5rem;
             }
+            
+            .crystal-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .crystal-title {
+                font-size: 2rem;
+            }
+            
+            .crystal-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
         }
         
         .crystal-subtitle {
@@ -194,22 +185,8 @@
         
         @media (max-width: 768px) {
             .crystal-table {
-                border-radius: 12px;
-                margin: 0 1rem;
-                overflow-x: auto;
-            }
-            
-            .grid-cols-8 {
-                display: grid;
-                grid-template-columns: 60px 1fr 40px 40px 40px 40px 80px 50px;
-                min-width: 600px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .crystal-table {
-                border-radius: 8px;
-                margin: 0 0.5rem;
+                border-radius: 16px;
+                margin: 0;
                 overflow-x: auto;
             }
             
@@ -217,6 +194,20 @@
                 display: grid;
                 grid-template-columns: 50px 1fr 35px 35px 35px 35px 70px 45px;
                 min-width: 500px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .crystal-table {
+                border-radius: 12px;
+                margin: 0;
+                overflow-x: auto;
+            }
+            
+            .grid-cols-8 {
+                display: grid;
+                grid-template-columns: 40px 1fr 30px 30px 30px 30px 60px 40px;
+                min-width: 400px;
             }
         }
         
@@ -263,18 +254,17 @@
         
         @media (max-width: 768px) {
             .header-cell {
-                padding: 0.6rem;
-                padding: 0.6rem 0.3rem;
+                padding: 0.8rem 0.4rem;
                 font-size: 0.65rem;
-                white-space: nowrap;
+                letter-spacing: 0.05em;
             }
         }
         
         @media (max-width: 480px) {
             .header-cell {
-                padding: 0.5rem 0.2rem;
+                padding: 0.6rem 0.3rem;
                 font-size: 0.6rem;
-                white-space: nowrap;
+                letter-spacing: 0.03em;
             }
         }
         
@@ -365,15 +355,15 @@
         
         @media (max-width: 768px) {
             .position-cell {
-                padding: 0.8rem;
-                font-size: 1.1rem;
+                padding: 0.8rem 0.4rem;
+                font-size: 1rem;
             }
         }
         
         @media (max-width: 480px) {
             .position-cell {
-                padding: 0.6rem;
-                font-size: 1rem;
+                padding: 0.6rem 0.3rem;
+                font-size: 0.9rem;
             }
         }
         
@@ -412,15 +402,33 @@
         
         @media (max-width: 768px) {
             .team-cell {
-                padding: 0.8rem;
-                gap: 0.8rem;
+                padding: 0.8rem 0.4rem;
+                gap: 0.6rem;
+            }
+            
+            .team-logo {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .team-name {
+                font-size: 0.8rem;
             }
         }
         
         @media (max-width: 480px) {
             .team-cell {
-                padding: 0.6rem;
-                gap: 0.6rem;
+                padding: 0.6rem 0.3rem;
+                gap: 0.4rem;
+            }
+            
+            .team-logo {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .team-name {
+                font-size: 0.7rem;
             }
         }
         
@@ -436,32 +444,18 @@
             -webkit-backface-visibility: hidden;
         }
         
-        @media (max-width: 768px) {
-            .team-logo {
-                width: 30px;
-                height: 30px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .team-logo {
-                width: 24px;
-                height: 24px;
-            }
-        }
-        
-        .team-logo:hover {
-            transform: scale(1.2) rotate(5deg);
-            filter: drop-shadow(0 4px 8px rgba(147, 51, 234, 0.5));
-            -webkit-transform: scale(1.2) rotate(5deg);
-        }
-        
         .team-name {
             color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
             font-size: 0.95rem;
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
+        }
+        
+        .team-logo:hover {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 4px 8px rgba(147, 51, 234, 0.5));
+            -webkit-transform: scale(1.2) rotate(5deg);
         }
         
         .stats-cell {
@@ -490,21 +484,63 @@
             background: rgba(168, 85, 247, 0.25);
         }
         
-        .crystal-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #9333ea 0%, #7c3aed 50%, #6d28d9 100%);
-            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-            animation: float 4s ease-in-out infinite;
-            margin: 0 auto 1rem;
-            box-shadow: 
-                0 0 20px rgba(147, 51, 234, 0.6),
-                0 0 40px rgba(147, 51, 234, 0.4);
+        @media (max-width: 768px) {
+            .stats-cell {
+                padding: 0.8rem 0.4rem;
+                font-size: 0.8rem;
+            }
+            
+            .points-cell {
+                padding: 0.8rem 0.4rem;
+                font-size: 1rem;
+            }
+            
+            .stats-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .euro-qualifications {
+                margin-top: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .euro-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .qualifications-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
+        @media (max-width: 480px) {
+            .stats-cell {
+                padding: 0.6rem 0.3rem;
+                font-size: 0.7rem;
+            }
+            
+            .points-cell {
+                padding: 0.6rem 0.3rem;
+                font-size: 0.9rem;
+            }
+            
+            .stats-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .euro-qualifications {
+                margin-top: 1.5rem;
+                padding: 1rem;
+            }
+            
+            .euro-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
