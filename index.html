@@ -794,6 +794,33 @@
             </div>
         </main>
 
+        <!-- Kwalifikacje Europejskie -->
+        <section class="euro-qualifications-compact mt-8">
+            <h3 class="euro-compact-title">🏆 Kwalifikacje Europejskie</h3>
+            <div class="euro-list-horizontal">
+                <div class="euro-item top1">
+                    <span class="euro-position">1️⃣</span>
+                    <span class="euro-desc">LM (4r)</span>
+                </div>
+                <div class="euro-item top2">
+                    <span class="euro-position">2️⃣</span>
+                    <span class="euro-desc">LM (2r)</span>
+                </div>
+                <div class="euro-item top3">
+                    <span class="euro-position">3️⃣</span>
+                    <span class="euro-desc">LK (2r)</span>
+                </div>
+                <div class="euro-item top4">
+                    <span class="euro-position">4️⃣</span>
+                    <span class="euro-desc">LK (2r)</span>
+                </div>
+                <div class="euro-item cup">
+                    <span class="euro-position">🏆</span>
+                    <span class="euro-desc">PP - LE (2r)</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Przycisk do statystyk -->
         <div class="text-center mt-8">
             <a href="statystyki.html" class="stats-button">
@@ -978,33 +1005,7 @@
             </div>
         </section>
 
-        <!-- Kwalifikacje Europejskie -->
-        <section class="euro-qualifications-compact mt-8">
-            <h3 class="euro-compact-title">🏆 Kwalifikacje Europejskie</h3>
-            <div class="euro-list">
-                <div class="euro-item top1">
-                    <span class="euro-position">1️⃣</span>
-                    <span class="euro-desc">Liga Mistrzów (4. runda)</span>
-                </div>
-                <div class="euro-item top2">
-                    <span class="euro-position">2️⃣</span>
-                    <span class="euro-desc">Liga Mistrzów (2. runda)</span>
-                </div>
-                <div class="euro-item top3">
-                    <span class="euro-position">3️⃣</span>
-                    <span class="euro-desc">Liga Konferencji (2. runda)</span>
-                </div>
-                <div class="euro-item top4">
-                    <span class="euro-position">4️⃣</span>
-                    <span class="euro-desc">Liga Konferencji (2. runda)</span>
-                </div>
-                <div class="euro-item cup">
-                    <span class="euro-position">🏆</span>
-                    <span class="euro-desc">Zwycięzca Pucharu Polski - Liga Europy (2. runda)</span>
-                </div>
-            </div>
-        </section>
-    </div>
+        </div>
 
     <style>
         .upcoming-matches {
@@ -1284,15 +1285,26 @@
             gap: 0.5rem;
         }
         
+        .euro-list-horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
         .euro-item {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            padding: 0.5rem 0.8rem;
+            gap: 0.5rem;
+            padding: 0.4rem 0.6rem;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 8px;
             transition: all 0.3s ease;
+            flex: 1;
+            justify-content: center;
+            min-width: 0;
         }
         
         .euro-item:hover {
@@ -1301,14 +1313,14 @@
         }
         
         .euro-position {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
-            min-width: 30px;
+            min-width: 20px;
             text-align: center;
         }
         
         .euro-desc {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.8);
             font-family: 'Inter', sans-serif;
