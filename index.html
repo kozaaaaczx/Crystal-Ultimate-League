@@ -183,6 +183,12 @@
             background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent);
         }
         
+        .table-grid {
+            display: grid;
+            grid-template-columns: 60px 2fr 60px 60px 60px 60px 100px 70px;
+            gap: 0;
+        }
+        
         @media (max-width: 768px) {
             .crystal-table {
                 border-radius: 16px;
@@ -190,8 +196,7 @@
                 overflow-x: auto;
             }
             
-            .grid-cols-8 {
-                display: grid;
+            .table-grid {
                 grid-template-columns: 50px 1fr 35px 35px 35px 35px 70px 45px;
                 min-width: 500px;
             }
@@ -204,8 +209,7 @@
                 overflow-x: auto;
             }
             
-            .grid-cols-8 {
-                display: grid;
+            .table-grid {
                 grid-template-columns: 40px 1fr 30px 30px 30px 30px 60px 40px;
                 min-width: 400px;
             }
@@ -562,7 +566,7 @@
 
         <main class="crystal-table">
             <div class="table-header">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="header-cell">Poz.</div>
                     <div class="header-cell">Drużyna</div>
                     <div class="header-cell">M</div>
@@ -575,7 +579,7 @@
             </div>
 
             <div class="table-row row-emerald">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-1">1</div>
                     <div class="team-cell">
                         <img src="loga klubow/jagiellonia.png" alt="Jagiellonia Białystok" class="team-logo">
@@ -591,7 +595,7 @@
             </div>
 
             <div class="table-row row-blue">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-2">2</div>
                     <div class="team-cell">
                         <img src="loga klubow/cracovia.png" alt="Cracovia" class="team-logo">
@@ -607,7 +611,7 @@
             </div>
 
             <div class="table-row row-purple">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-3">3</div>
                     <div class="team-cell">
                         <img src="loga klubow/zaglebie lubin.png" alt="Zagłębie Lubin" class="team-logo">
@@ -623,7 +627,7 @@
             </div>
 
             <div class="table-row row-amber">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-other">4</div>
                     <div class="team-cell">
                         <img src="loga klubow/lech poznan.png" alt="Lech Poznań" class="team-logo">
@@ -639,7 +643,7 @@
             </div>
 
             <div class="table-row row-emerald">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-other">5</div>
                     <div class="team-cell">
                         <img src="loga klubow/zawisza.png" alt="Zawisza Bydgoszcz" class="team-logo">
@@ -655,7 +659,7 @@
             </div>
 
             <div class="table-row row-purple">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-other">6</div>
                     <div class="team-cell">
                         <img src="loga klubow/mazur.png" alt="MKS Mazur Ełk" class="team-logo">
@@ -671,7 +675,7 @@
             </div>
 
             <div class="table-row row-blue">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-other">7</div>
                     <div class="team-cell">
                         <img src="loga klubow/korona kielce.png" alt="Korona Kielce" class="team-logo">
@@ -687,7 +691,7 @@
             </div>
 
             <div class="table-row row-amber">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-other">8</div>
                     <div class="team-cell">
                         <img src="loga klubow/slask wroclaw.png" alt="WKS Śląsk Wrocław" class="team-logo">
@@ -703,7 +707,7 @@
             </div>
 
             <div class="table-row row-blue">
-                <div class="grid grid-cols-8">
+                <div class="table-grid">
                     <div class="position-cell position-other">9</div>
                     <div class="team-cell">
                         <img src="loga klubow/widzew lodz.png" alt="Widzew Łódź" class="team-logo">
