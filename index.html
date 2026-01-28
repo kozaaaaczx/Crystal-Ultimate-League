@@ -10,22 +10,53 @@
     <title>Crystal Ultimate League</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         body {
             font-family: 'Inter', sans-serif;
-            background: #000;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 219, 98, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 60% 60%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
-                linear-gradient(180deg, #000428 0%, #004e92 100%);
+            background: #0a0a0a;
+            color: #ffffff;
             min-height: 100vh;
             position: relative;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             touch-action: pan-y;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.02) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.02) 75%, rgba(255, 255, 255, 0.02) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.02) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.02) 75%, rgba(255, 255, 255, 0.02) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
         }
         
         @media (max-width: 768px) {
@@ -91,61 +122,74 @@
             pointer-events: none;
         }
         
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+        
         .crystal-title {
-            font-family: 'Bebas Neue', cursive;
-            font-weight: 900;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #fff;
-            text-shadow: 
-                0 0 10px rgba(255, 255, 255, 0.8),
-                0 0 20px rgba(147, 51, 234, 0.6);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 4rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
             margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .crystal-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #a78bfa 0%, #60a5fa 100%);
+            border-radius: 2px;
         }
         
         @media (max-width: 768px) {
             .crystal-title {
                 font-size: 2.5rem;
-                letter-spacing: 0.05em;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .crystal-title {
-                font-size: 2rem;
             }
         }
         
         .crystal-subtitle {
-            font-family: 'Bebas Neue', cursive;
-            font-weight: 600;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 768px) {
-            .crystal-subtitle {
-                font-size: 1rem;
-                letter-spacing: 0.1em;
-            }
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #9ca3af;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
         }
         
         .crystal-table {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+            background: rgba(15, 15, 15, 0.95);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(147, 51, 234, 0.3);
-            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
             box-shadow: 
-                0 0 60px rgba(147, 51, 234, 0.4),
-                0 25px 50px rgba(0, 0, 0, 0.6),
-                inset 0 0 40px rgba(147, 51, 234, 0.1),
-                0 0 120px rgba(147, 51, 234, 0.2);
+                0 0 40px rgba(168, 85, 247, 0.1),
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.02);
             overflow: hidden;
             position: relative;
+        }
+        
+        .crystal-table::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent);
         }
         
         @media (max-width: 768px) {
@@ -193,23 +237,28 @@
         }
         
         .table-header {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%);
-            border-bottom: 2px solid rgba(147, 51, 234, 0.4);
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             z-index: 10;
         }
         
         .header-cell {
-            padding: 1rem;
+            padding: 1.25rem 1rem;
             text-align: center;
-            font-weight: 700;
-            color: #fff;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
-            border-bottom: 2px solid rgba(147, 51, 234, 0.5);
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.3) 0%, rgba(59, 130, 246, 0.3) 100%);
+            letter-spacing: 0.08em;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .header-cell:hover {
+            color: #ffffff;
+            background: rgba(168, 85, 247, 0.1);
         }
         
         @media (max-width: 768px) {
@@ -254,31 +303,23 @@
         }
         
         .table-row {
-            border-bottom: 1px solid rgba(148, 163, 184, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
-        }
-        
-        .table-row::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .table-row:hover::before {
-            left: 100%;
+            background: rgba(255, 255, 255, 0.01);
         }
         
         .table-row:hover {
-            transform: translateX(8px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.3);
-            z-index: 5;
+            background: rgba(168, 85, 247, 0.05);
+            transform: translateX(4px);
+        }
+        
+        .table-row:hover .team-name {
+            color: #ffffff;
+        }
+        
+        .table-row:hover .stats-cell {
+            color: rgba(255, 255, 255, 0.9);
         }
         
         @media (max-width: 768px) {
@@ -294,23 +335,23 @@
         }
         
         .row-blue {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+            background: rgba(59, 130, 246, 0.08);
             border-left: 3px solid rgba(59, 130, 246, 0.6);
         }
         
         .row-purple {
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
-            border-left: 3px solid rgba(147, 51, 234, 0.6);
+            background: rgba(168, 85, 247, 0.08);
+            border-left: 3px solid rgba(168, 85, 247, 0.6);
         }
         
         .row-emerald {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(52, 211, 153, 0.15) 100%);
+            background: rgba(16, 185, 129, 0.08);
             border-left: 3px solid rgba(16, 185, 129, 0.6);
         }
         
         .row-amber {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.15) 100%);
-            border-left: 3px solid rgba(245, 158, 11, 0.6);
+            background: rgba(251, 191, 36, 0.08);
+            border-left: 3px solid rgba(251, 191, 36, 0.6);
         }
         
         .position-cell {
@@ -416,108 +457,37 @@
         }
         
         .team-name {
-            color: #fff;
-            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
             font-size: 0.95rem;
             transition: all 0.3s ease;
-        }
-        
-        @media (max-width: 768px) {
-            .team-name {
-                font-size: 0.75rem;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .team-name {
-                font-size: 0.7rem;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 120px;
-            }
-        }
-        
-        .team-name:hover {
-            color: #a78bfa;
-            transform: translateX(3px);
+            font-family: 'Inter', sans-serif;
         }
         
         .stats-cell {
             padding: 1rem;
             text-align: center;
-            color: #fff;
-            font-weight: 600;
-            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-        }
-        
-        @media (max-width: 768px) {
-            .stats-cell {
-                padding: 0.8rem;
-                font-size: 0.85rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .stats-cell {
-                padding: 0.6rem;
-                font-size: 0.75rem;
-            }
-        }
-        
-        .stats-cell:hover {
-            color: #fbbf24;
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+            font-family: 'Inter', sans-serif;
         }
         
         .points-cell {
             padding: 1rem;
             text-align: center;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(22, 163, 74, 0.4) 100%);
-            color: #fff;
-            font-weight: 800;
-            font-size: 1.3rem;
+            background: rgba(168, 85, 247, 0.15);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
             position: relative;
             transition: all 0.3s ease;
         }
         
-        @media (max-width: 768px) {
-            .points-cell {
-                padding: 0.8rem;
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .points-cell {
-                padding: 0.6rem;
-                font-size: 1rem;
-            }
-        }
-        
-        .points-cell::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.2) 100%);
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .points-cell:hover::before {
-            opacity: 1;
-        }
-        
         .points-cell:hover {
-            transform: scale(1.05);
-            color: #fbbf24;
-            text-shadow: 0 0 15px rgba(251, 191, 36, 0.8);
+            background: rgba(168, 85, 247, 0.25);
         }
         
         .crystal-icon {
