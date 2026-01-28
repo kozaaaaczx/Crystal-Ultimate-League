@@ -978,6 +978,20 @@
             gap: 1.5rem;
             min-width: max-content;
             padding: 0 0.5rem;
+            animation: scroll 30s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .logos-scroll-container:hover .logos-scroll-list {
+            animation-play-state: paused;
         }
         
         .logo-match {
