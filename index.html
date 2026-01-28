@@ -801,6 +801,88 @@
             </a>
         </div>
 
+        <!-- Nadchodzące Mecze -->
+        <section class="upcoming-matches mt-12">
+            <h2 class="matches-title">⚽ Nadchodzące Mecze</h2>
+            <div class="matches-grid">
+                <div class="match-card">
+                    <div class="match-time">
+                        <div class="match-date">15.02</div>
+                        <div class="match-hour">18:00</div>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team home">
+                            <img src="loga klubow/jagiellonia.png" alt="Jagiellonia" class="match-logo">
+                            <span>Jagiellonia</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away">
+                            <img src="loga klubow/lech poznan.png" alt="Lech Poznań" class="match-logo">
+                            <span>Lech Poznań</span>
+                        </div>
+                    </div>
+                    <div class="match-league">7. kolejka</div>
+                </div>
+                
+                <div class="match-card">
+                    <div class="match-time">
+                        <div class="match-date">15.02</div>
+                        <div class="match-hour">20:30</div>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team home">
+                            <img src="loga klubow/cracovia.png" alt="Cracovia" class="match-logo">
+                            <span>Cracovia</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away">
+                            <img src="loga klubow/zaglebie lubin.png" alt="Zagłębie Lubin" class="match-logo">
+                            <span>Zagłębie Lubin</span>
+                        </div>
+                    </div>
+                    <div class="match-league">7. kolejka</div>
+                </div>
+                
+                <div class="match-card">
+                    <div class="match-time">
+                        <div class="match-date">16.02</div>
+                        <div class="match-hour">17:00</div>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team home">
+                            <img src="loga klubow/zawisza.png" alt="Zawisza" class="match-logo">
+                            <span>Zawisza</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away">
+                            <img src="loga klubow/korona kielce.png" alt="Korona Kielce" class="match-logo">
+                            <span>Korona Kielce</span>
+                        </div>
+                    </div>
+                    <div class="match-league">7. kolejka</div>
+                </div>
+                
+                <div class="match-card">
+                    <div class="match-time">
+                        <div class="match-date">16.02</div>
+                        <div class="match-hour">19:45</div>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team home">
+                            <img src="loga klubow/slask wroclaw.png" alt="Śląsk Wrocław" class="match-logo">
+                            <span>Śląsk Wrocław</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away">
+                            <img src="loga klubow/widzew lodz.png" alt="Widzew Łódź" class="match-logo">
+                            <span>Widzew Łódź</span>
+                        </div>
+                    </div>
+                    <div class="match-league">7. kolejka</div>
+                </div>
+            </div>
+        </section>
+
         <!-- Kwalifikacje Europejskie -->
         <section class="euro-qualifications mt-12">
             <h2 class="euro-title">🏆 Kwalifikacje Europejskie</h2>
@@ -854,6 +936,222 @@
     </div>
 
     <style>
+        .upcoming-matches {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .matches-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+            animation: matchesGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes matchesGlow {
+            from { text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+            to { text-shadow: 0 0 30px rgba(59, 130, 246, 0.9), 0 0 40px rgba(147, 51, 234, 0.6); }
+        }
+        
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .match-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .match-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .match-card:hover::before {
+            left: 100%;
+        }
+        
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .match-time {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .match-date {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #60a5fa;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .match-hour {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #a78bfa;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .match-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+        }
+        
+        .match-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .team:hover .match-logo {
+            transform: scale(1.1);
+        }
+        
+        .team span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .vs {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+            margin: 0 1rem;
+        }
+        
+        .match-league {
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        @media (max-width: 768px) {
+            .upcoming-matches {
+                margin-top: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .matches-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .matches-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .match-card {
+                padding: 1rem;
+            }
+            
+            .match-date {
+                font-size: 1rem;
+            }
+            
+            .match-hour {
+                font-size: 0.9rem;
+            }
+            
+            .match-logo {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .team span {
+                font-size: 0.8rem;
+            }
+            
+            .vs {
+                font-size: 1rem;
+                margin: 0 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .upcoming-matches {
+                margin-top: 1.5rem;
+                padding: 1rem;
+            }
+            
+            .matches-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .match-card {
+                padding: 0.8rem;
+            }
+            
+            .match-date {
+                font-size: 0.9rem;
+            }
+            
+            .match-hour {
+                font-size: 0.8rem;
+            }
+            
+            .match-logo {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .team span {
+                font-size: 0.7rem;
+            }
+            
+            .vs {
+                font-size: 0.9rem;
+                margin: 0 0.3rem;
+            }
+        }
+        
         .euro-qualifications {
             margin-top: 3rem;
             padding: 2rem;
