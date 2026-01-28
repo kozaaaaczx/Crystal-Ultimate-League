@@ -953,20 +953,11 @@
         }
         
         .logos-scroll-container {
-            overflow-x: scroll;
+            overflow-x: hidden;
             overflow-y: hidden;
             padding: 0.5rem 0;
             border-radius: 12px;
             width: 100%;
-        }
-        
-        .logos-scroll-container::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .logos-scroll-container {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
         }
         
         .logos-scroll-list {
@@ -974,6 +965,16 @@
             gap: 1.5rem;
             min-width: max-content;
             padding: 0 0.5rem;
+            animation: scroll 30s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
         
         .logo-match {
