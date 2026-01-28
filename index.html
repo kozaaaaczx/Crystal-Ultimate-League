@@ -929,28 +929,7 @@
         </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.logos-scroll-container');
-            const list = document.querySelector('.logos-scroll-list');
-            
-            // Mouse events - pause on hover
-            container.addEventListener('mouseenter', () => {
-                list.style.animationPlayState = 'paused';
-            });
-            
-            container.addEventListener('mouseleave', () => {
-                list.style.animationPlayState = 'running';
-            });
-            
-            // Touch events for mobile
-            container.addEventListener('touchstart', () => {
-                list.style.animationPlayState = 'paused';
-            });
-            
-            container.addEventListener('touchend', () => {
-                list.style.animationPlayState = 'running';
-            });
-        });
+        // No JavaScript needed - just mouse scroll
     </script>
 
     <style>
@@ -981,21 +960,12 @@
         }
         
         .logos-scroll-container::-webkit-scrollbar {
-            height: 6px;
+            display: none;
         }
         
-        .logos-scroll-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-        }
-        
-        .logos-scroll-container::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.6);
-            border-radius: 3px;
-        }
-        
-        .logos-scroll-container::-webkit-scrollbar-thumb:hover {
-            background: rgba(59, 130, 246, 0.8);
+        .logos-scroll-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         
         .logos-scroll-list {
@@ -1003,20 +973,6 @@
             gap: 1.5rem;
             min-width: max-content;
             padding: 0 0.5rem;
-            animation: scroll 30s linear infinite;
-        }
-        
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        .logos-scroll-container:hover .logos-scroll-list {
-            animation-play-state: paused;
         }
         
         .logo-match {
