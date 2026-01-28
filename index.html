@@ -719,9 +719,182 @@
                 📊 Zobacz statystyki sezonu
             </a>
         </div>
+
+        <!-- Kwalifikacje Europejskie -->
+        <section class="euro-qualifications mt-12">
+            <h2 class="euro-title">🏆 Kwalifikacje Europejskie</h2>
+            <div class="qualifications-grid">
+                <div class="qualification-card top1">
+                    <div class="qual-icon">🥇</div>
+                    <div class="qual-content">
+                        <h3>Top 1</h3>
+                        <p class="qual-desc">Liga Mistrzów</p>
+                        <p class="qual-round">4. runda kwalifikacyjna</p>
+                    </div>
+                </div>
+                
+                <div class="qualification-card top2">
+                    <div class="qual-icon">🥈</div>
+                    <div class="qual-content">
+                        <h3>Top 2</h3>
+                        <p class="qual-desc">Liga Mistrzów</p>
+                        <p class="qual-round">2. runda kwalifikacyjna</p>
+                    </div>
+                </div>
+                
+                <div class="qualification-card top3">
+                    <div class="qual-icon">🥉</div>
+                    <div class="qual-content">
+                        <h3>Top 3</h3>
+                        <p class="qual-desc">Liga Konferencji</p>
+                        <p class="qual-round">2. runda kwalifikacyjna</p>
+                    </div>
+                </div>
+                
+                <div class="qualification-card top4">
+                    <div class="qual-icon">🏅</div>
+                    <div class="qual-content">
+                        <h3>Top 4</h3>
+                        <p class="qual-desc">Liga Konferencji</p>
+                        <p class="qual-round">2. runda kwalifikacyjna</p>
+                    </div>
+                </div>
+                
+                <div class="qualification-card cup-winner">
+                    <div class="qual-icon">🏆</div>
+                    <div class="qual-content">
+                        <h3>Zwycięzca Pucharu Polski</h3>
+                        <p class="qual-desc">Liga Europy</p>
+                        <p class="qual-round">2. runda kwalifikacyjna</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <style>
+        .euro-qualifications {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .euro-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+            animation: euroGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes euroGlow {
+            from { text-shadow: 0 0 20px rgba(251, 191, 36, 0.6); }
+            to { text-shadow: 0 0 30px rgba(251, 191, 36, 0.9), 0 0 40px rgba(245, 158, 11, 0.6); }
+        }
+        
+        .qualifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .qualification-card {
+            background: linear-gradient(135deg, rgba(55, 65, 81, 0.9) 0%, rgba(31, 41, 55, 0.9) 100%);
+            border: 2px solid rgba(251, 191, 36, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .qualification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .qualification-card:hover::before {
+            left: 100%;
+        }
+        
+        .qualification-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
+            border-color: rgba(251, 191, 36, 0.8);
+        }
+        
+        .qualification-card.top1 {
+            border-color: rgba(251, 191, 36, 0.6);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+        }
+        
+        .qualification-card.top2 {
+            border-color: rgba(192, 192, 192, 0.6);
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(169, 169, 169, 0.2) 100%);
+        }
+        
+        .qualification-card.top3 {
+            border-color: rgba(205, 127, 50, 0.6);
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%);
+        }
+        
+        .qualification-card.top4 {
+            border-color: rgba(176, 141, 87, 0.6);
+            background: linear-gradient(135deg, rgba(176, 141, 87, 0.2) 0%, rgba(160, 82, 45, 0.2) 100%);
+        }
+        
+        .qualification-card.cup-winner {
+            border-color: rgba(34, 197, 94, 0.6);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.2) 100%);
+        }
+        
+        .qual-icon {
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .qual-content h3 {
+            color: #fbbf24;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .qual-desc {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .qual-round {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
         .stats-button {
             display: inline-flex;
             align-items: center;
