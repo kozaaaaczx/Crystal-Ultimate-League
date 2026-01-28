@@ -800,23 +800,28 @@
             <div class="euro-list-horizontal">
                 <div class="euro-item top1">
                     <span class="euro-position">1️⃣</span>
-                    <span class="euro-desc">LM (4r)</span>
+                    <span class="euro-desc">Liga Mistrzów</span>
+                    <span class="euro-round">4. runda</span>
                 </div>
                 <div class="euro-item top2">
                     <span class="euro-position">2️⃣</span>
-                    <span class="euro-desc">LM (2r)</span>
+                    <span class="euro-desc">Liga Mistrzów</span>
+                    <span class="euro-round">2. runda</span>
                 </div>
                 <div class="euro-item top3">
                     <span class="euro-position">3️⃣</span>
-                    <span class="euro-desc">LK (2r)</span>
+                    <span class="euro-desc">Liga Konferencji</span>
+                    <span class="euro-round">2. runda</span>
                 </div>
                 <div class="euro-item top4">
                     <span class="euro-position">4️⃣</span>
-                    <span class="euro-desc">LK (2r)</span>
+                    <span class="euro-desc">Liga Konferencji</span>
+                    <span class="euro-round">2. runda</span>
                 </div>
                 <div class="euro-item cup">
                     <span class="euro-position">🏆</span>
-                    <span class="euro-desc">PP - LE (2r)</span>
+                    <span class="euro-desc">Puchar Polski</span>
+                    <span class="euro-round">Liga Europy</span>
                 </div>
             </div>
         </section>
@@ -1296,8 +1301,8 @@
         .euro-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 0.6rem;
+            gap: 0.3rem;
+            padding: 0.5rem 0.8rem;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 8px;
@@ -1309,21 +1314,29 @@
         
         .euro-item:hover {
             background: rgba(255, 255, 255, 0.08);
-            transform: translateX(5px);
+            transform: translateY(-2px);
         }
         
         .euro-position {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            min-width: 20px;
+            min-width: 18px;
             text-align: center;
         }
         
         .euro-desc {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
             font-family: 'Inter', sans-serif;
+        }
+        
+        .euro-round {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Inter', sans-serif;
+            opacity: 0.8;
         }
         
         .euro-item.top1 .euro-position {
