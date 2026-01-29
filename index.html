@@ -618,12 +618,166 @@
                 padding: 1rem;
             }
 
-            .euro-title {
-                font-size: 1.5rem;
+            /* Final Celebration Styling */
+            .champions-section {
+                margin-bottom: 3rem;
+                position: relative;
+                padding: 3rem;
+                background: linear-gradient(135deg, rgba(234, 179, 8, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%);
+                border: 3px solid rgba(234, 179, 8, 0.4);
+                border-radius: 30px;
+                text-align: center;
+                overflow: hidden;
+                animation: borderGlow 3s infinite alternate;
+                backdrop-filter: blur(20px);
+            }
+
+            @keyframes borderGlow {
+                0% {
+                    border-color: rgba(234, 179, 8, 0.4);
+                    box-shadow: 0 0 20px rgba(234, 179, 8, 0.2);
+                }
+
+                100% {
+                    border-color: rgba(147, 51, 234, 0.6);
+                    box-shadow: 0 0 40px rgba(147, 51, 234, 0.4);
+                }
+            }
+
+            .champ-title {
+                font-size: 3rem;
+                font-weight: 900;
+                background: linear-gradient(to right, #fbbf24, #f59e0b, #fbbf24);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
                 margin-bottom: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                animation: titlePulse 2s infinite ease-in-out;
+            }
+
+            @keyframes titlePulse {
+
+                0%,
+                100% {
+                    transform: scale(1);
+                    filter: brightness(1);
+                }
+
+                50% {
+                    transform: scale(1.05);
+                    filter: brightness(1.3);
+                }
+            }
+
+            .champ-logo {
+                width: 140px;
+                height: 140px;
+                margin: 1.5rem auto;
+                filter: drop-shadow(0 0 20px rgba(234, 179, 8, 0.5));
+                animation: trophyFloat 3s infinite ease-in-out;
+            }
+
+            @keyframes trophyFloat {
+
+                0%,
+                100% {
+                    transform: translateY(0) rotate(0);
+                }
+
+                50% {
+                    transform: translateY(-15px) rotate(5deg);
+                }
+            }
+
+            .winner-name {
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 0.5rem;
+                text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .final-stats-summary {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .summary-item {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 1.5rem;
+                border-radius: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .summary-label {
+                display: block;
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.5);
+                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+            }
+
+            .summary-value {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #fbbf24;
+            }
+
+            /* Confetti Effect */
+            .confetti-piece {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background: #ffd700;
+                top: -10px;
+                animation: fall 3s infinite linear;
+                z-index: 0;
+            }
+
+            @keyframes fall {
+                0% {
+                    transform: translateY(-10vh) rotate(0deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(110vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .champ-title {
+                    font-size: 2rem;
+                }
+
+                .winner-name {
+                    font-size: 1.5rem;
+                }
+
+                .final-stats-summary {
+                    grid-template-columns: 1fr;
+                }
+            }
+    </style>
+    <script>
+        function createConfetti() {
+            const container = document.querySelector('.champions-section');
+            if (!container) return;
+            for (let i = 0; i < 50; i++) {
+                const p = document.createElement('div');
+                p.className = 'confetti-piece';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 3 + 's';
+                p.style.backgroundColor = ['#fbbf24', '#f59e0b', '#fff', '#9333ea'][Math.floor(Math.random() * 4)];
+                container.appendChild(p);
             }
         }
-    </style>
+        window.onload = createConfetti;
+    </script>
 </head>
 
 <body class="min-h-screen">
@@ -639,167 +793,192 @@
             <div class="flex justify-center mb-4">
                 <div class="crystal-icon"></div>
             </div>
-            <h1 class="crystal-title">Crystal Ultimate League</h1>
-            <p class="crystal-subtitle">Season 2025/2026</p>
+            <h1 class="text-5xl font-extrabold mb-2 tracking-tighter">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+                    Crystal Ultimate League
+                </span>
+            </h1>
+            <p class="text-gray-400 font-medium">Oficjalna tabela i statystyki turnieju</p>
         </header>
 
-        <main class="crystal-table">
-            <div class="table-header">
-                <div class="table-grid">
-                    <div class="header-cell">Poz.</div>
-                    <div class="header-cell">Drużyna</div>
-                    <div class="header-cell">M</div>
-                    <div class="header-cell">W</div>
-                    <div class="header-cell">R</div>
-                    <div class="header-cell">P</div>
-                    <div class="header-cell">Bramki</div>
-                    <div class="header-cell">PKT</div>
-                </div>
-            </div>
+        <!-- Sekcja Mistrza -->
+        <section class="champions-section">
+            <h2 class="champ-title">👑 Mistrz Sezonu 👑</h2>
+            <img src="loga klubow/jagiellonia.png" alt="Jagiellonia Białystok" class="champ-logo">
+            <div class="winner-name">JAGIELLONIA BIAŁYSTOK</div>
+            <p class="text-yellow-500 font-bold text-xl uppercase tracking-widest">Zwycięzca Crystal Ultimate League</p>
 
-            <div class="league-row row-amber">
-                <div class="table-grid">
-                    <div class="position-cell position-top4">1</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/jagiellonia.png" alt="Jagiellonia Białystok" class="team-logo">
-                        <span class="team-name">Jagiellonia Białystok</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">11</div>
-                    <div class="stats-cell">3</div>
-                    <div class="stats-cell">2</div>
-                    <div class="stats-cell">32–16</div>
-                    <div class="points-cell">36</div>
+            <div class="final-stats-summary">
+                <div class="summary-item">
+                    <span class="summary-label">Punkty</span>
+                    <span class="summary-value">36</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Wygrane</span>
+                    <span class="summary-value">11</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Bramki Strzelone</span>
+                    <span class="summary-value">32</span>
                 </div>
             </div>
+        </section>
+        <div class="table-header">
+            <div class="table-grid">
+                <div class="header-cell">Poz.</div>
+                <div class="header-cell">Drużyna</div>
+                <div class="header-cell">M</div>
+                <div class="header-cell">W</div>
+                <div class="header-cell">R</div>
+                <div class="header-cell">P</div>
+                <div class="header-cell">Bramki</div>
+                <div class="header-cell">PKT</div>
+            </div>
+        </div>
 
-            <div class="league-row row-amber">
-                <div class="table-grid">
-                    <div class="position-cell position-top4">2</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/lech poznan.png" alt="Lech Poznań" class="team-logo">
-                        <span class="team-name">Lech Poznań</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">8</div>
-                    <div class="stats-cell">2</div>
-                    <div class="stats-cell">6</div>
-                    <div class="stats-cell">31–30</div>
-                    <div class="points-cell">26</div>
+        <div class="league-row row-amber">
+            <div class="table-grid">
+                <div class="position-cell position-top4">1</div>
+                <div class="team-cell">
+                    <img src="loga klubow/jagiellonia.png" alt="Jagiellonia Białystok" class="team-logo">
+                    <span class="team-name">Jagiellonia Białystok</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">11</div>
+                <div class="stats-cell">3</div>
+                <div class="stats-cell">2</div>
+                <div class="stats-cell">32–16</div>
+                <div class="points-cell">36</div>
             </div>
+        </div>
 
-            <div class="league-row row-amber">
-                <div class="table-grid">
-                    <div class="position-cell position-top4">3</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/cracovia.png" alt="Cracovia" class="team-logo">
-                        <span class="team-name">Cracovia</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">8</div>
-                    <div class="stats-cell">2</div>
-                    <div class="stats-cell">6</div>
-                    <div class="stats-cell">26–20</div>
-                    <div class="points-cell">26</div>
+        <div class="league-row row-amber">
+            <div class="table-grid">
+                <div class="position-cell position-top4">2</div>
+                <div class="team-cell">
+                    <img src="loga klubow/lech poznan.png" alt="Lech Poznań" class="team-logo">
+                    <span class="team-name">Lech Poznań</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">8</div>
+                <div class="stats-cell">2</div>
+                <div class="stats-cell">6</div>
+                <div class="stats-cell">31–30</div>
+                <div class="points-cell">26</div>
             </div>
+        </div>
 
-            <div class="league-row row-amber">
-                <div class="table-grid">
-                    <div class="position-cell position-top4">4</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/zaglebie lubin.png" alt="Zagłębie Lubin" class="team-logo">
-                        <span class="team-name">Zagłębie Lubin</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">9</div>
-                    <div class="stats-cell">3</div>
-                    <div class="stats-cell">4</div>
-                    <div class="stats-cell">27–17</div>
-                    <div class="points-cell">30</div>
+        <div class="league-row row-amber">
+            <div class="table-grid">
+                <div class="position-cell position-top4">3</div>
+                <div class="team-cell">
+                    <img src="loga klubow/cracovia.png" alt="Cracovia" class="team-logo">
+                    <span class="team-name">Cracovia</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">8</div>
+                <div class="stats-cell">2</div>
+                <div class="stats-cell">6</div>
+                <div class="stats-cell">26–20</div>
+                <div class="points-cell">26</div>
             </div>
+        </div>
 
-            <div class="league-row row-purple">
-                <div class="table-grid">
-                    <div class="position-cell position-other">5</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/zawisza.png" alt="Zawisza Bydgoszcz" class="team-logo">
-                        <span class="team-name">Zawisza Bydgoszcz</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">7</div>
-                    <div class="stats-cell">2</div>
-                    <div class="stats-cell">7</div>
-                    <div class="stats-cell">27–30</div>
-                    <div class="points-cell">23</div>
+        <div class="league-row row-amber">
+            <div class="table-grid">
+                <div class="position-cell position-top4">4</div>
+                <div class="team-cell">
+                    <img src="loga klubow/zaglebie lubin.png" alt="Zagłębie Lubin" class="team-logo">
+                    <span class="team-name">Zagłębie Lubin</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">9</div>
+                <div class="stats-cell">3</div>
+                <div class="stats-cell">4</div>
+                <div class="stats-cell">27–17</div>
+                <div class="points-cell">30</div>
             </div>
+        </div>
 
-            <div class="league-row row-purple">
-                <div class="table-grid">
-                    <div class="position-cell position-other">6</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/widzew lodz.png" alt="Widzew Łódź" class="team-logo">
-                        <span class="team-name">Widzew Łódź</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">2</div>
-                    <div class="stats-cell">6</div>
-                    <div class="stats-cell">8</div>
-                    <div class="stats-cell">17–28</div>
-                    <div class="points-cell">12</div>
+        <div class="league-row row-purple">
+            <div class="table-grid">
+                <div class="position-cell position-other">5</div>
+                <div class="team-cell">
+                    <img src="loga klubow/zawisza.png" alt="Zawisza Bydgoszcz" class="team-logo">
+                    <span class="team-name">Zawisza Bydgoszcz</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">7</div>
+                <div class="stats-cell">2</div>
+                <div class="stats-cell">7</div>
+                <div class="stats-cell">27–30</div>
+                <div class="points-cell">23</div>
             </div>
+        </div>
 
-            <div class="league-row row-purple">
-                <div class="table-grid">
-                    <div class="position-cell position-other">7</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/mazur.png" alt="MKS Mazur Ełk" class="team-logo">
-                        <span class="team-name">MKS Mazur Ełk</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">6</div>
-                    <div class="stats-cell">5</div>
-                    <div class="stats-cell">5</div>
-                    <div class="stats-cell">31–33</div>
-                    <div class="points-cell">23</div>
+        <div class="league-row row-purple">
+            <div class="table-grid">
+                <div class="position-cell position-other">6</div>
+                <div class="team-cell">
+                    <img src="loga klubow/widzew lodz.png" alt="Widzew Łódź" class="team-logo">
+                    <span class="team-name">Widzew Łódź</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">2</div>
+                <div class="stats-cell">6</div>
+                <div class="stats-cell">8</div>
+                <div class="stats-cell">17–28</div>
+                <div class="points-cell">12</div>
             </div>
+        </div>
 
-            <div class="league-row row-purple">
-                <div class="table-grid">
-                    <div class="position-cell position-other">8</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/korona kielce.png" alt="Korona Kielce" class="team-logo">
-                        <span class="team-name">Korona Kielce</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">4</div>
-                    <div class="stats-cell">3</div>
-                    <div class="stats-cell">9</div>
-                    <div class="stats-cell">23–31</div>
-                    <div class="points-cell">15</div>
+        <div class="league-row row-purple">
+            <div class="table-grid">
+                <div class="position-cell position-other">7</div>
+                <div class="team-cell">
+                    <img src="loga klubow/mazur.png" alt="MKS Mazur Ełk" class="team-logo">
+                    <span class="team-name">MKS Mazur Ełk</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">6</div>
+                <div class="stats-cell">5</div>
+                <div class="stats-cell">5</div>
+                <div class="stats-cell">31–33</div>
+                <div class="points-cell">23</div>
             </div>
+        </div>
 
-            <div class="league-row row-blue">
-                <div class="table-grid">
-                    <div class="position-cell position-other">9</div>
-                    <div class="team-cell">
-                        <img src="loga klubow/slask wroclaw.png" alt="WKS Śląsk Wrocław" class="team-logo">
-                        <span class="team-name">WKS Śląsk Wrocław</span>
-                    </div>
-                    <div class="stats-cell">16</div>
-                    <div class="stats-cell">2</div>
-                    <div class="stats-cell">4</div>
-                    <div class="stats-cell">10</div>
-                    <div class="stats-cell">12–25</div>
-                    <div class="points-cell">10</div>
+        <div class="league-row row-purple">
+            <div class="table-grid">
+                <div class="position-cell position-other">8</div>
+                <div class="team-cell">
+                    <img src="loga klubow/korona kielce.png" alt="Korona Kielce" class="team-logo">
+                    <span class="team-name">Korona Kielce</span>
                 </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">4</div>
+                <div class="stats-cell">3</div>
+                <div class="stats-cell">9</div>
+                <div class="stats-cell">23–31</div>
+                <div class="points-cell">15</div>
             </div>
+        </div>
+
+        <div class="league-row row-blue">
+            <div class="table-grid">
+                <div class="position-cell position-other">9</div>
+                <div class="team-cell">
+                    <img src="loga klubow/slask wroclaw.png" alt="WKS Śląsk Wrocław" class="team-logo">
+                    <span class="team-name">WKS Śląsk Wrocław</span>
+                </div>
+                <div class="stats-cell">16</div>
+                <div class="stats-cell">2</div>
+                <div class="stats-cell">4</div>
+                <div class="stats-cell">10</div>
+                <div class="stats-cell">12–25</div>
+                <div class="points-cell">10</div>
+            </div>
+        </div>
         </main>
 
         <!-- Kwalifikacje Europejskie -->
@@ -843,12 +1022,14 @@
 
         <!-- Nadchodzące Mecze -->
         <section class="upcoming-matches-compact mt-8">
-            <h3 class="matches-compact-title">⚽ Nadchodzące Mecze</h3>
+            <h3 class="matches-compact-title">🏆 Turniej Zakończony</h3>
             <div class="logos-scroll-container">
                 <div class="logos-scroll-list" style="animation: none; justify-content: center;">
-                    <div class="pause-notice" style="margin: 0; min-width: 300px;">
-                        <span class="pause-icon">📅</span>
-                        <span class="pause-text">Oczekiwanie na terminarz kolejnej kolejki...</span>
+                    <div class="pause-notice"
+                        style="margin: 0; min-width: 300px; border-color: rgba(147, 51, 234, 0.4); background: rgba(147, 51, 234, 0.1);">
+                        <span class="pause-icon">🏆</span>
+                        <span class="pause-text" style="color: #fff;">Dziękujemy za udział w sezonie! Do zobaczenia
+                            wkrótce.</span>
                     </div>
                 </div>
             </div>
