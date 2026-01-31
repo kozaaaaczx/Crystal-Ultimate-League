@@ -842,7 +842,7 @@
         }
 
         /* Initial state for active container */
-        #season-1.active {
+        #season-2.active {
             display: block;
             opacity: 1;
             transform: translateY(0);
@@ -916,7 +916,6 @@
             }
         }
 
-        window.addEventListener('load', createConfetti);
         window.addEventListener('resize', createConfetti);
     </script>
 </head>
@@ -949,12 +948,12 @@
 
         <!-- Season Selector -->
         <div class="season-selector">
-            <button class="season-btn active" onclick="switchSeason('season-1')">Sezon 1</button>
-            <button class="season-btn" onclick="switchSeason('season-2')">Sezon 2</button>
+            <button class="season-btn" onclick="switchSeason('season-1')">Sezon 1</button>
+            <button class="season-btn active" onclick="switchSeason('season-2')">Sezon 2</button>
         </div>
 
         <!-- SEASON 1 CONTENT -->
-        <div id="season-1" class="season-container active">
+        <div id="season-1" class="season-container">
             <!-- Sekcja Mistrza -->
             <section class="champions-section">
                 <h2 class="champ-title">👑 Mistrz Sezonu 👑</h2>
@@ -1192,7 +1191,7 @@
         </div> <!-- End Season 1 -->
 
         <!-- SEASON 2 CONTENT -->
-        <div id="season-2" class="season-container">
+        <div id="season-2" class="season-container active">
             <main class="crystal-table">
                 <div class="table-header">
                     <div class="table-grid">
